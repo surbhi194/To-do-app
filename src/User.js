@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import List from './List.js';
 function User() {
   const [user,setUser]=useState("");
@@ -37,20 +38,31 @@ function User() {
     }
     setPassword(item);
   }
+  // function loginHandler(e)
+  // {
+  //   if(user.length<3||password.length<8)
+  //   {
+  //     alert("Correct valid values:(");
+  //   }
+  //   else{
+  //     alert("all good:)");
+  //   }
+  //   e.preventDefault();
+  // }
     return (
       <div className="User">
        <h2><i>To-Do App</i></h2> 
-        {/* <form>
+        <form>
           <br></br>
-          User Name:-
+          User Name :-
           <input type="text" placeholder="userName" onChange={userHandler}/>
           {userErr?<span>user not valid</span>:<span> </span>}<br/><br/>
-          Password:-
+          Password :-
           <input type="password" placeholder="password" onChange={passwordHandler}/>
           {passwordErr?<span>password not valid(password must contain atleast 8 characters)</span>:<span> </span>}<br/><br/>
-          <button onClick={()=>signupHandler}>signUp</button><br/><br/>
-          <h6><i>already have an account?</i><button>login</button></h6>
-        </form> */}
+          <button><Link to="/List">signUp</Link></button><br/><br/>
+          <div><i>already have an account?</i><Link to="/List">login</Link></div>
+        </form>
       </div>
     );
   }
