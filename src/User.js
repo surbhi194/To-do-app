@@ -7,15 +7,15 @@ function User() {
   const [password,setPassword]=useState("");
   const [userErr,setUserErr]=useState(false);
   const [passwordErr,setpasswordErr]=useState(false);
-  function signupHandler(e)
-  {
-    e.preventDefault();
-    <List user={user} password={password}/>
-  }
+  // function signupHandler(e)
+  // {
+  //   e.preventDefault();
+  //   <List user={user} password={password}/>
+  // }
   function userHandler(e)
   {
     let item=e.target.value;
-    if(item.length<3)
+    if(item.length<4)
     {
       setUserErr(true);
     }
@@ -60,7 +60,7 @@ function User() {
           Password :-
           <input type="password" placeholder="password" onChange={passwordHandler}/>
           {passwordErr?<span>password not valid(password must contain atleast 8 characters)</span>:<span> </span>}<br/><br/>
-          <button><Link to="/List">signUp</Link></button><br/><br/>
+         {user.length>3&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button>signUp</button></div>}<br/><br/>
           <div><i>already have an account?</i><Link to="/List">login</Link></div>
         </form>
       </div>
