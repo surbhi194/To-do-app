@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import List from './List.js';
-function User() {
+function User(props) {
   const [user,setUser]=useState("");
   const [password,setPassword]=useState("");
   const [userErr,setUserErr]=useState(false);
@@ -24,6 +24,7 @@ function User() {
       setUserErr(false);
     }
     setUser(item);
+    props.fun(item);
   }
   function passwordHandler(e)
   {
@@ -51,7 +52,7 @@ function User() {
   // }
     return (
       <div className="User">
-       <h2><i>To-Do App</i></h2> 
+       <h3><i>To-Do App</i></h3> 
         <form>
           <br></br>
           User Name :-
@@ -61,7 +62,7 @@ function User() {
           <input type="password" placeholder="password" onChange={passwordHandler}/>
           {passwordErr?<span>password not valid(password must contain atleast 8 characters)</span>:<span> </span>}<br/><br/>
          {user.length>3&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button>signUp</button></div>}<br/><br/>
-          <div><i>already have an account?</i><Link to="/List">login</Link></div>
+          <div><i>already have an account?</i><Link to="/List">login</Link></div><br></br>
         </form>
       </div>
     );
