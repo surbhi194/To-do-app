@@ -4,18 +4,14 @@ import ToDo from './ToDo.js';
 
 
 const ToDoList = (props) => {
-   const [toDoList, setToDoList] = useState("");
    useEffect(() => {
       console.log(props.toDoList);
-      setToDoList(props.toDoList);
    }, [])
    return (
       <>
          <div id="ToDoList">
-            {toDoList.length > 0 && toDoList.map((todo, index) => {
+            {props.toDoList.length > 0 && props.toDoList.map((todo, index) => {
                return <>
-                  {/* <div>{todo.task}</div>
-                  <div>{todo.id}</div> */}
                   <ToDo todo={todo} />
                </>
             })
@@ -24,5 +20,5 @@ const ToDoList = (props) => {
       </>
    );
 };
-// handleToggle={props.handleToggle} handleFilter={props.handleFilter
+
 export default ToDoList;

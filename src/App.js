@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import User from './User';
-// import Home from './Home';
 import List from './List';
 import Add from './Add';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';

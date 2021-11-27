@@ -7,11 +7,6 @@ function User(props) {
   const [password,setPassword]=useState("");
   const [userErr,setUserErr]=useState(false);
   const [passwordErr,setpasswordErr]=useState(false);
-  // function signupHandler(e)
-  // {
-  //   e.preventDefault();
-  //   <List user={user} password={password}/>
-  // }
   function userHandler(e)
   {
     let item=e.target.value;
@@ -39,17 +34,6 @@ function User(props) {
     }
     setPassword(item);
   }
-  // function loginHandler(e)
-  // {
-  //   if(user.length<3||password.length<8)
-  //   {
-  //     alert("Correct valid values:(");
-  //   }
-  //   else{
-  //     alert("all good:)");
-  //   }
-  //   e.preventDefault();
-  // }
     return (
       <div className="User">
        <h3><i>To-Do App</i></h3> 

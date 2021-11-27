@@ -30,7 +30,10 @@ const handleFilter = () => {
     return !tasks.complete;
   });
   console.log(filtered);
-  // setToDoList(filtered);      #error line:-this line is not working properly because of (setToDoList(filtered);)
+  setToDoList(filtered);    
+}
+const demo=(value)=>{
+  setToDoList(value);
 }
   return (
     <div className="Add">
@@ -42,10 +45,10 @@ const handleFilter = () => {
     <div class="form-floating">
   {/* <textarea id="addtxt" class="form-control" placeholder="Content" onChange={contentHandler}></textarea> */}
   <div className="line">
-  <ToDoList handleToggle={handleToggle} handleFilter={handleFilter} toDoList={toDoList}/>
+  <ToDoList handleToggle={handleToggle} toDoList={toDoList}/>
   </div>
   <button style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</button>
-  <ToDoForm toDoList={toDoList}/>
+  <ToDoForm toDoList={toDoList} demo={demo}/>
 </div>
     </div>
   );
