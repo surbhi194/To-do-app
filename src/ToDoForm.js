@@ -11,7 +11,7 @@ const handleChange = (e) => {
 const addTask = (userInput) => {
   let copy = [...props.toDoList];
   copy = [...copy, { id: props.toDoList.length + 1, task: userInput, complete: false }];
-  props.demo(copy);
+  props.set(copy);
 }
 const handleSubmit = (e) => {
     e.preventDefault();

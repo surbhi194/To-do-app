@@ -32,12 +32,15 @@ const handleFilter = () => {
   console.log(filtered);
   setToDoList(filtered);    
 }
-const demo=(value)=>{
+const Submit = (e) => {
+    e.preventDefault();
+}
+const set=(value)=>{
   setToDoList(value);
 }
   return (
     <div className="Add">
-    <button id="addbtn" className="Save2"><Link to="/List">Save</Link></button>
+    <button id="addbtn" className="Save2" onlick={Submit}><Link to="/List">Save</Link></button>
     <div class="form-control-1">
   {/* <textarea id="addtitle" class="form-control-1" placeholder="Topic" onChange={topicHandler}></textarea> */}
   <u><h3>TO-DO LIST</h3></u>
@@ -48,7 +51,7 @@ const demo=(value)=>{
   <ToDoList handleToggle={handleToggle} toDoList={toDoList}/>
   </div>
   <button style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</button>
-  <ToDoForm toDoList={toDoList} demo={demo}/>
+  <ToDoForm toDoList={toDoList} set={set}/>
 </div>
     </div>
   );
