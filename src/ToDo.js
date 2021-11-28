@@ -3,7 +3,10 @@ import './App.css';
 const ToDo = (props) => {
    return (
        <div className={props.todo.complete ? "strike" : ""}>
-               {/* todo.onlick = {props.handleToggle(props.todo.id)}; */}
+             {/* { props.todo.task.onlick =(props.toggle(props.todo.id))} */}
+            {/* props.todo.task.addEventListener('click', function(e) {
+        props.toggle(props.todo.id)
+        }, false); */}
            {props.todo.task}
        </div>
    );

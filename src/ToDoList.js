@@ -12,7 +12,7 @@ const ToDoList = (props) => {
          <div id="ToDoList">
             {props.toDoList.length > 0 && props.toDoList.map((todo, index) => {
                return <>
-                  <ToDo todo={todo} />
+                  <ToDo todo={todo} toggle={props.handleToggle}/>
                </>
             })
             }

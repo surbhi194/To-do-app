@@ -15,7 +15,7 @@ function List (props) {
     <button className="Save"><Link to="/User">log out</Link></button>
     </div>
     <div className="More1">
-    <button className="More"><b><Link to="/Add">+</Link></b></button>
+    <button className="More"><b><Link to="/Add">My_list</Link></b></button>
     </div>
     </div>
   );

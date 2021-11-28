@@ -60,6 +60,10 @@ h2{
   margin-bottom: 50px;
   background-color:rgb(206, 63, 63);
 }
+.checked {
+  /* color: #fff; */
+  text-decoration: line-through;
+}
 .strike {
   text-decoration: line-through;
 }
