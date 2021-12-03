@@ -1,16 +1,9 @@
 import './App.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import data1 from "./data.json";
+import data1 from "./data.json";
 import List from './List.js';
 function User(props) {
-  var data1=[{
-    "id": 1,
-    "task": "Your file!",
-    "complete": false
-  }
-  ]
-  localStorage.setItem('data',data1);
   const [user,setUser]=useState("");
   const [password,setPassword]=useState("");
   const [userErr,setUserErr]=useState(false);
@@ -44,6 +37,13 @@ function User(props) {
   }
     return (
       <div className="User">
+         var data1={[{
+    "id": 1,
+    "task": "Your file!",
+    "complete": false
+  }
+  ]}
+  localStorage.setItem('data',data1);
        <h3><i>To-Do App</i></h3> 
         <form>
           <br></br>
