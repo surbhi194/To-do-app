@@ -7,12 +7,16 @@ const ToDoList = (props) => {
    useEffect(() => {
       console.log(props.toDoList);
    }, [])
+
+   const strikeIndex = (value) => {
+      props.strikeIndex(value);
+   }
    return (
       <>
          <div id="ToDoList">
             {props.toDoList.length > 0 && props.toDoList.map((todo, index) => {
                return <>
-                  <ToDo todo={todo} toggle={props.handleToggle}/>
+                  <ToDo todo={todo} index={index} strikeIndex={strikeIndex}/>
                </>
             })
             }

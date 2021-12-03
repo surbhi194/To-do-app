@@ -4,11 +4,14 @@ import List from './List.js';
 import { Link } from 'react-router-dom';
 import ToDoList from "./ToDoList";
 import React, { useState } from 'react';
-import data from "./data.json";
+// import list from "./data.json";
 function Add(props) {
   const [topic,setTopic]=useState("");
   const [content,setContent]=useState("");
-  const [ toDoList, setToDoList ] = useState(data);
+  // localStorage.setItem('data',list);
+  var back=localStorage.getItem('data');
+  const [ toDoList, setToDoList ] = useState(back);
+  // setToDoList(back);
     // function topicHandler(e)
     // {
     //   let item=e.target.value;
@@ -24,19 +27,24 @@ const handleToggle = (id) => {
     return task.id == id ? { ...task, complete: !task.complete } : { ...task};
   });
   setToDoList(mapped);
+  localStorage.setItem('data',toDoList);
 }
 const handleFilter = () => {
   let filtered = toDoList.filter(tasks => {
     return !tasks.complete;
   });
-  console.log(filtered);
-  setToDoList(filtered);    
+  setToDoList(filtered); 
+  localStorage.setItem('data',toDoList);   
 }
 const Submit = (e) => {
     e.preventDefault();
 }
 const set=(value)=>{
   setToDoList(value);
+  localStorage.setItem('data',toDoList);
+}
+const strikeIndex = (value) => {
+  handleToggle(value+1);
 }
   return (
     <div className="Add">
@@ -48,7 +56,7 @@ const set=(value)=>{
     <div class="form-floating">
   {/* <textarea id="addtxt" class="form-control" placeholder="Content" onChange={contentHandler}></textarea> */}
   <div className="line">
-  <ToDoList handleToggle={handleToggle} toDoList={toDoList}/>
+  <ToDoList strikeIndex={strikeIndex} toDoList={toDoList}/>
   </div>
   <button style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</button>
   <ToDoForm toDoList={toDoList} set={set}/>
