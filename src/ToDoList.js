@@ -16,7 +16,7 @@ const ToDoList = (props) => {
          <div id="ToDoList">
             {props.toDoList.length > 0 && props.toDoList.map((todo, index) => {
                return <>
-                  <ToDo todo={todo} index={index} strikeIndex={strikeIndex}/>
+                  <ToDo todo={todo} strikeIndex={strikeIndex} index={index} />
                </>
             })
             }

@@ -4,12 +4,10 @@ import List from './List.js';
 import { Link } from 'react-router-dom';
 import ToDoList from "./ToDoList";
 import React, { useState } from 'react';
-// import list from "./data.json";
 function Add(props) {
   const [topic,setTopic]=useState("");
   const [content,setContent]=useState("");
-  // localStorage.setItem('data',list);
-  var back=localStorage.getItem('data');
+  var back= JSON.parse(localStorage.getItem('data'));
   const [ toDoList, setToDoList ] = useState(back);
   // setToDoList(back);
     // function topicHandler(e)
@@ -24,24 +22,23 @@ function Add(props) {
     // }
 const handleToggle = (id) => {
   let mapped = toDoList.map((task) => {
-    return task.id == id ? { ...task, complete: !task.complete } : { ...task};
+    return task.id == id ? { ...task, complete: !task.complete } : { ...task};  
   });
+  localStorage.setItem('data',JSON.stringify(mapped));
   setToDoList(mapped);
-  localStorage.setItem('data',toDoList);
 }
 const handleFilter = () => {
   let filtered = toDoList.filter(tasks => {
     return !tasks.complete;
   });
   setToDoList(filtered); 
-  localStorage.setItem('data',toDoList);   
+  localStorage.setItem('data',JSON.stringify(toDoList));   
 }
 const Submit = (e) => {
     e.preventDefault();
 }
 const set=(value)=>{
   setToDoList(value);
-  localStorage.setItem('data',toDoList);
 }
 const strikeIndex = (value) => {
   handleToggle(value+1);

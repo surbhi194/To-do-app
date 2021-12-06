@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import data1 from "./data.json";
 import List from './List.js';
@@ -8,6 +8,10 @@ function User(props) {
   const [password,setPassword]=useState("");
   const [userErr,setUserErr]=useState(false);
   const [passwordErr,setpasswordErr]=useState(false);
+
+  useEffect(()=>{
+    localStorage.setItem('data',JSON.stringify(data1));
+  },[])
   function userHandler(e)
   {
     let item=e.target.value;
@@ -37,13 +41,6 @@ function User(props) {
   }
     return (
       <div className="User">
-         var data1={[{
-    "id": 1,
-    "task": "Your file!",
-    "complete": false
-  }
-  ]}
-  localStorage.setItem('data',data1);
        <h3><i>To-Do App</i></h3> 
         <form>
           <br></br>

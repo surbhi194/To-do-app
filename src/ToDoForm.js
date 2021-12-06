@@ -6,15 +6,14 @@ function ToDoForm(props) {
 const [ userInput, setUserInput ] = useState('');
 const handleChange = (e) => {
     setUserInput(e.target.value);
-    console.log(e.target.value);
 }
 const addTask = (userInput) => {
   let copy = [...props.toDoList];
   copy = [...copy, { id: props.toDoList.length + 1, task: userInput, complete: false }];
+  localStorage.setItem('data',JSON.stringify(copy));
   props.set(copy);
 }
 const handleSubmit = (e) => {
-    e.preventDefault();
     addTask(userInput);
 }
   return(
