@@ -32,7 +32,7 @@ const handleFilter = () => {
     return !tasks.complete;
   });
   setToDoList(filtered); 
-  localStorage.setItem('data',JSON.stringify(toDoList));   
+  localStorage.setItem('data',JSON.stringify(filtered));   
 }
 const Submit = (e) => {
     e.preventDefault();

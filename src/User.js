@@ -15,7 +15,7 @@ function User(props) {
   function userHandler(e)
   {
     let item=e.target.value;
-    if(item.length<4)
+    if(item.length<3)
     {
       setUserErr(true);
     }
@@ -50,8 +50,8 @@ function User(props) {
           Password :-
           <input type="password" placeholder="password" onChange={passwordHandler}/>
           {passwordErr?<span>password not valid(password must contain atleast 8 characters)</span>:<span> </span>}<br/><br/>
-         {user.length>3&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button>signUp</button></div>}<br/><br/>
-          <div><i>already have an account?</i><Link to="/List">login</Link></div><br></br>
+         {user.length>2&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button>signUp</button></div>}<br/><br/>
+          {/* <div><i>already have an account?</i><Link to="/List">login</Link></div><br></br> */}
         </form>
       </div>
     );
