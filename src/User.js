@@ -26,6 +26,10 @@ function User(props) {
     setUser(item);
     props.fun(item);
   }
+  function sign(e)
+  {
+    window.alert("Both fields are required:)")
+  }
   function passwordHandler(e)
   {
     let item=e.target.value;
@@ -50,7 +54,7 @@ function User(props) {
           Password :-
           <input type="password" placeholder="password" onChange={passwordHandler}/>
           {passwordErr?<span>password not valid(password must contain atleast 8 characters)</span>:<span> </span>}<br/><br/>
-         {user.length>2&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button>signUp</button></div>}<br/><br/>
+         {user.length>2&&password.length>=8? <button><Link to="/List">signUp</Link></button>:<div><button onClick={sign}>signUp</button></div>}<br/><br/>
           {/* <div><i>already have an account?</i><Link to="/List">login</Link></div><br></br> */}
         </form>
       </div>
