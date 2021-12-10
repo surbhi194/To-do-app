@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./App.css";
-import User from "./User";
-import List from "./List";
-import Add from "./Add";
+// import "./App.css";
+import User from "./components/User";
+import List from "./components/List";
+import Add from "./components/Add";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  
+
   const [name, setName] = useState("");
 
-  function fun(value) {
+  const fun=(value)=> {
     setName(value);
   }
 
@@ -20,9 +20,9 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<User fun={fun} />} />
-          <Route exact path="/user" element={<User fun={fun} />} />
-          <Route exact path="/add" element={<Add />} />
-          <Route path="/list" element={<List name={name} />} />
+          <Route exact path="/User" element={<User fun={fun} />} />
+          <Route exact path="/Add" element={<Add />} />
+          <Route path="/List" element={<List name={name} />} />
         </Routes>
 
       </Router>

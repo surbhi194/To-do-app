@@ -3,10 +3,6 @@ import ReactDOM from "react-dom";
 import ToDo from "./ToDo.js";
 
 const ToDoList = (props) => {
-   
-  useEffect(() => {
-    console.log(props.toDoList);
-  }, []);
 
   const strikeIndex = (value) => {
     props.strikeIndex(value);
@@ -16,8 +12,7 @@ const ToDoList = (props) => {
     <>
       <div id="ToDoList">
 
-        {props.toDoList.length > 0 &&
-          props.toDoList.map((todo, index) => {
+        {props.toDoList.length > 0 && props.toDoList.map((todo, index) => {
             return (
               <>
                 <ToDo todo={todo} strikeIndex={strikeIndex} index={index} />

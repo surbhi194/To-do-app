@@ -8,10 +8,6 @@ function List(props) {
 
   const location = useLocation();
 
-  useEffect(() => {
-    console.log(props.name);
-  }, []);
-
   return (
     <div className="List">
 
@@ -30,7 +26,7 @@ function List(props) {
           </b>
         </button>
       </div>
-      
+
     </div>
   );
 }

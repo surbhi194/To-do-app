@@ -6,11 +6,11 @@ import ToDoList from "./ToDoList";
 import React, { useState } from "react";
 
 function Add(props) {
-  
+
   const [topic, setTopic] = useState("");
   const [content, setContent] = useState("");
-  var back = JSON.parse(localStorage.getItem("data"));
   const [toDoList, setToDoList] = useState(back);
+  var back = JSON.parse(localStorage.getItem("data"));
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => {
