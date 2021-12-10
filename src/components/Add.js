@@ -9,8 +9,8 @@ function Add(props) {
 
   const [topic, setTopic] = useState("");
   const [content, setContent] = useState("");
-  const [toDoList, setToDoList] = useState(back);
   var back = JSON.parse(localStorage.getItem("data"));
+  const [toDoList, setToDoList] = useState(back);
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => {
